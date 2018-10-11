@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>grade</mat-icon>
+    <mat-card-title>Tweets</mat-card-title>
+    <mat-card-subtitle>Choose between your timeline or favorites</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button color="accent" (click)="loadTimeLine()">
+      <mat-icon>list</mat-icon>Load my timeline
+    </button>
+    <button mat-button color="accent" (click)="loadFavorites()">
+      <mat-icon>favorite</mat-icon>Load my favorites
+    </button>
+  </mat-card-actions>
+  <mat-card-content>
+
+    <div *ngIf="tweets$ | async; else loading; let tweets">
+
+      <app-tweet-list [tweets]="tweets"></app-tweet-list>
+
+    </div>
+
+    <ng-template #loading>
+      <mat-progress-bar mode="indeterminate" *ngIf="isInteractionStarted"></mat-progress-bar>
+    </ng-template>
+
+  </mat-card-content>
+
+</mat-card>

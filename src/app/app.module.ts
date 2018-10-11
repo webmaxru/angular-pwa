@@ -1,30 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MaterialModule } from './material.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-import 'hammerjs';
+import { AppShellUpdateComponent } from './app-shell-update/app-shell-update.component';
+import { TweetListComponent } from './tweet-list/tweet-list.component';
+import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
+
+import { PushSubscriptionComponent } from './push-subscription/push-subscription.component';
 
 @NgModule({
   declarations: [
-    NavigationComponent
+    NavigationComponent,
+    DashboardComponent,
+    TweetListComponent,
+    TweetFeedsComponent,
+    PushSubscriptionComponent,
+    AppShellUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [NavigationComponent]
 })
 export class AppModule { }

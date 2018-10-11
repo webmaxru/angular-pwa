@@ -1,0 +1,14 @@
+<mat-nav-list *ngIf="tweets">
+  <a mat-list-item *ngFor="let tweet of tweets" href="{{ 'https://twitter.com/statuses/' + tweet.id_str }}">
+    <h3 matLine>{{tweet.user.name}}</h3>
+    <p matLine>
+      <span>{{tweet.text}}</span>
+    </p>
+    <p matLine>
+      <small>
+        <mat-icon>favorite</mat-icon> {{tweet.favorite_count || 0}} &nbsp; <mat-icon>autorenew</mat-icon>
+        {{tweet.retweet_count || 0}}
+      </small>
+    </p>
+  </a>
+</mat-nav-list>

@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  config: {
+    "DATA_API_URL": "http://localhost:3000", // https://pwa-workshop-api.herokuapp.com
+    "PUSH_API_URL": "http://localhost:3000", // https://pwa-workshop-api.herokuapp.com
+    "VAPID_PUBLIC_KEY": "BM88mSlUg4mvjcPK5QrzRfQzow91F47iEazCnoTBQ8Hv_AVrJviLcnrNumTK319qWOt43sgOzBJs6UrdOW5IxHg"
+  }
 };
 
 /*
