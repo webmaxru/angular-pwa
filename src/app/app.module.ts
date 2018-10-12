@@ -16,6 +16,8 @@ import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
 import { PushSubscriptionComponent } from './push-subscription/push-subscription.component';
 import { CachedRouteComponent } from './cached-route/cached-route.component';
 import { NonCachedRouteComponent } from './non-cached-route/non-cached-route.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { NonCachedRouteComponent } from './non-cached-route/non-cached-route.com
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [NavigationComponent]
 })
