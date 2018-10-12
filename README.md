@@ -1,27 +1,49 @@
-# AngularPwa
+# A simple app for the Angular PWA Workshop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+## Prerequisites
+1. Latest stable versions of `node`, `npm` installed.
+2. Static web server with SPA support:
+- [serve](https://www.npmjs.com/package/serve). Recommended and pre-configured.
+- [superstatic](https://www.npmjs.com/package/superstatic). Use this as a fallback option.
 
-## Development server
+## Install
+1. Clone the repo
+2. 
+```bash
+git checkout ngsw-step0
+npm install
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install/update Angular CLI
+```bash
+npm uninstall -g angular-cli
+npm uninstall -g @angular/cli
+npm cache clean
+npm install -g @angular/cli@latest
+```
 
-## Code scaffolding
+Check the version:
+```bash
+npm list @angular/cli version -g
+```
+The output should be at least `6.x.x`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Checking the app
+1. In the terminal
+```bash
+ng serve
+```
+2. Open [http://localhost:4200/](http://localhost:4200/). You should see the page with `Angular PWA` header.
+3. "Ctrl-C" to stop the app.
 
-## Build
+## Creating a production build and serving it via external web server
+```bash
+ng build --prod
+```
+The `dist/angular-pwa` folder should be created.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- If you use `serve`: Run `serve` and open `http://127.0.0.1:5000` in your browser.
 
-## Running unit tests
+You should see the page with `Angular PWA` header.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## We are ready to start the workshop! Follow the trainer instructions.
