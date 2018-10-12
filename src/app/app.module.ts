@@ -14,6 +14,8 @@ import { TweetListComponent } from './tweet-list/tweet-list.component';
 import { TweetFeedsComponent } from './tweet-feeds/tweet-feeds.component';
 
 import { PushSubscriptionComponent } from './push-subscription/push-subscription.component';
+import { CachedRouteComponent } from './cached-route/cached-route.component';
+import { NonCachedRouteComponent } from './non-cached-route/non-cached-route.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PushSubscriptionComponent } from './push-subscription/push-subscription
     TweetListComponent,
     TweetFeedsComponent,
     PushSubscriptionComponent,
-    AppShellUpdateComponent
+    AppShellUpdateComponent,
+    CachedRouteComponent,
+    NonCachedRouteComponent
   ],
   imports: [
     BrowserModule,
