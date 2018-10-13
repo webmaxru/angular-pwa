@@ -1,7 +1,7 @@
 {
-  "name": "angular-pwa",
-  "short_name": "angular-pwa",
-  "theme_color": "#1976d2",
+  "name": "Angular PWA Workshop",
+  "short_name": "Angular PWA",
+  "theme_color": "#5921c8",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
