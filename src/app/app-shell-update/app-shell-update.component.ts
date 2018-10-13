@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WindowRef } from './../window-ref';
 import { MatSnackBar } from '@angular/material';
-// Import SwUpdate here
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-shell-update',
@@ -11,7 +11,8 @@ import { MatSnackBar } from '@angular/material';
 export class AppShellUpdateComponent implements OnInit {
   constructor(
     public snackBar: MatSnackBar,
-    private winRef: WindowRef
+    private winRef: WindowRef,
+    private swUpdate: SwUpdate
   ) {}
 
   ngOnInit() {
@@ -19,17 +20,58 @@ export class AppShellUpdateComponent implements OnInit {
   }
 
   subscribeForUpdates() {
-    // Code to subscribe for updates
+    this.swUpdate.available.subscribe(event => {
+      console.log(
+        '[App Shell Update] Update available: current version is',
+        event.current,
+        'available version is',
+        event.available
+      );
+      
+      let versionMessage = event.available.appData ? event.available.appData['versionMessage'] : ''
+      let snackBarRef = this.snackBar.open(
+        versionMessage || 'Newer version of the app is available.',
+        'Refresh the page'
+      );
+
+      snackBarRef.onAction().subscribe(() => {
+        this.activateUpdate();
+      });
+    });
+
+    this.swUpdate.activated.subscribe(event => {
+      console.log(
+        '[App Shell Update] Update activated: old version was',
+        event.previous,
+        'new version is',
+        event.current
+      );
+    });
   }
 
   activateUpdate() {
     console.log('[App Shell Update] activateUpdate started');
-    // Code to activate the update
+    this.swUpdate
+      .activateUpdate()
+      .then(() => {
+        console.log('[App Shell Update] activateUpdate completed');
+        this.winRef.nativeWindow.location.reload();
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   checkForUpdate() {
     console.log('[App Shell Update] checkForUpdate started');
-    // Code to explicitly check for the updates
+    this.swUpdate
+      .checkForUpdate()
+      .then(() => {
+        console.log('[App Shell Update] checkForUpdate completed');
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   openLog() {

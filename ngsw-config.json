@@ -65,5 +65,8 @@
         "strategy": "performance"
       }
     }
-  ]
+  ],
+  "appData": {
+    "versionMessage": "New version: Push notifications were added!"
+  }
 }
