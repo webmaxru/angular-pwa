@@ -18,7 +18,8 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**"
+          "/assets/**",
+          "!/assets/material-design-icons/**"
         ]
       }
     }, {
@@ -27,6 +28,14 @@
         "urls": [
           "https://fonts.googleapis.com/**",
           "https://fonts.gstatic.com/**"
+        ]
+      }
+    }, {
+      "name": "icon-fonts",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/material-design-icons/**"
         ]
       }
     }   
