@@ -68,5 +68,12 @@
   ],
   "appData": {
     "versionMessage": "New version: Push notifications were added!"
-  }
+  },
+  "navigationUrls": [
+    "/**",
+    "!/**/*.*",
+    "!/**/*__*",
+    "!/**/*__*/**",
+    "!/**/non-cached-route"
+  ]
 }
