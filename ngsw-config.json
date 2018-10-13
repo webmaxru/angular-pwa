@@ -21,6 +21,14 @@
           "/assets/**"
         ]
       }
-    }
+    }, {
+      "name": "fonts",
+      "resources": {
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/**"
+        ]
+      }
+    }   
   ]
 }
