@@ -10,3 +10,7 @@
   position: sticky;
   top: 0;
 }
+
+.title {
+  flex: 1 1 auto;
+}

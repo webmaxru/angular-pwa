@@ -3,7 +3,7 @@
     #drawer
     class="sidenav"
     fixedInViewport="true"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    mode="side"
     opened="false">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
@@ -21,7 +21,8 @@
         (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Angular PWA</span>
+      <span class="title">Angular PWA</span>
+      <button mat-raised-button (click)="install()" [disabled]="btnInstallDisabled">Install</button>
     </mat-toolbar>
     
     <router-outlet></router-outlet>
