@@ -6,7 +6,7 @@ var workboxConfig = {
     '**/*.{txt,png,ico,html,js,json,css,eot,ijmap,ttf,woff,woff2}'
   ],
   globIgnores: [
-    'workbox-v3.0.0/**/*'
+    'workbox-v3.6.2/**/*'
   ],
   swSrc: 'src/service-worker.js',
   swDest: 'dist/angular-pwa/sw.js'
