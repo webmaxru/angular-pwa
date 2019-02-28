@@ -10,7 +10,7 @@
 1. Clone the repo
 2. 
 ```bash
-git checkout ngsw-step0
+git checkout workbox-v4
 npm install
 ```
 
