@@ -1,4 +1,7 @@
-# A simple app for the Angular PWA Workshop
+# Demo of Workbox-driven (v4) bundled service worker
+
+## Slides
+[Sending the Angular app into deep, deep offline with Workbox](https://slides.com/webmax/angular-workbox/)
 
 ## Prerequisites
 1. Latest stable versions of `node`, `npm` installed.
@@ -10,7 +13,7 @@
 1. Clone the repo
 2. 
 ```bash
-git checkout workbox-v4
+git checkout workbox-v4-bundle
 npm install
 ```
 
@@ -38,7 +41,7 @@ ng serve
 
 ## Creating a production build and serving it via external web server
 ```bash
-ng build --prod
+npm run build-pwa-bundle
 ```
 The `dist/angular-pwa` folder should be created.
 
