@@ -1,5 +1,7 @@
 const {injectManifest} = require('workbox-build')
 
+let swSrc = process.argv.slice(2)[0] || 'service-worker.js';
+
 let workboxConfig = {
   globDirectory: 'dist/angular-pwa',
   globPatterns: [
@@ -8,7 +10,7 @@ let workboxConfig = {
     '*.css',
     '*.js'
   ],
-  swSrc: 'src/service-worker.js',
+  swSrc: 'src/' + swSrc,
   swDest: 'dist/angular-pwa/service-worker.js'
 }
 
