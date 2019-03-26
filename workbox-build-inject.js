@@ -8,7 +8,8 @@ let workboxConfig = {
     'favicon.ico',
     'index.html',
     '*.css',
-    '*.js'
+    '*.js',
+    'assets/**/*'
   ],
   swSrc: 'src/' + swSrc,
   swDest: 'dist/angular-pwa/service-worker.js'
