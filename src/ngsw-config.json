@@ -19,6 +19,7 @@
       "resources": {
         "files": [
           "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)",
           "!/assets/material-design-icons/**"
         ]
       }
@@ -38,32 +39,6 @@
           "/assets/material-design-icons/**"
         ]
       }
-    }   
-  ],
-  "dataGroups": [
-    {
-      "name": "api-freshness",
-      "urls": [
-        "/timeline"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "1m",
-        "strategy": "freshness"
-      }
-    },
-    {
-      "name": "api-performance",
-      "urls": [
-        "/favorites"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "3d",
-        "timeout": "10s",
-        "strategy": "performance"
-      }
-    }
+    } 
   ]
 }
