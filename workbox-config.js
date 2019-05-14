@@ -9,5 +9,8 @@ module.exports = {
       "urlPattern": new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
       "handler": 'staleWhileRevalidate'
     }
-  ]
+  ],
+  "globIgnores": [
+    "workbox-v4.3.1/**/*"
+  ] 
 };

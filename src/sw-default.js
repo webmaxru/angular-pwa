@@ -20,40 +20,7 @@ workbox.core.clientsClaim();
 // PRECACHING
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
-workbox.precaching.precacheAndRoute([
-  {
-    "url": "3rdpartylicenses.txt",
-    "revision": "0bc833d0d9232ee71e490b997452c182"
-  },
-  {
-    "url": "assets/images/logo.png",
-    "revision": "f5fd664cc80a6c77d6c79e5bd2653426"
-  },
-  {
-    "url": "favicon.ico",
-    "revision": "4f6a4dab3f3cae2985be59bfd9909605"
-  },
-  {
-    "url": "index.html",
-    "revision": "da84d7f973db1f08e3e88e1cf8f73f1d"
-  },
-  {
-    "url": "main.ec460fd130b082fe2ebf.js",
-    "revision": "0cd2f6d6084bf627a122e1b1f0c3f9ac"
-  },
-  {
-    "url": "polyfills.0fa3e9588b07b25d43c2.js",
-    "revision": "f61fab6f423084665a6db849a49b762d"
-  },
-  {
-    "url": "runtime.26209474bfa8dc87a77c.js",
-    "revision": "cd1ce3e306bf57f272364d1cc0249d6e"
-  },
-  {
-    "url": "styles.61981e6f805f82d49920.css",
-    "revision": "4f3f288ce3957ce6812c4af674ce8213"
-  }
-]);
+workbox.precaching.precacheAndRoute([]);
 
 // RUNTIME CACHING
 
