@@ -1,4 +1,4 @@
-# A simple app for the Angular PWA Workshop
+# A simple app for the Workbox PWA Workshop
 
 ## Prerequisites
 1. Latest stable versions of `node`, `npm` installed.
@@ -8,42 +8,25 @@
 
 ## Install
 1. Clone the repo
-2. 
 ```bash
-git checkout ngsw-step0
+git clone https://github.com/webmaxru/angular-pwa.git
+cd angular-pwa
+```
+2. Switch the branch
+```bash
+git checkout workbox-step0
+```
+3. Install the dependencies
+```bash
 npm install
 ```
-
-## Install/update Angular CLI
-```bash
-npm uninstall -g angular-cli
-npm uninstall -g @angular/cli
-npm cache clean
-npm install -g @angular/cli@latest
-```
-
-Check the version:
-```bash
-npm list @angular/cli version -g
-```
-The output should be at least `6.x.x`
 
 ## Checking the app
 1. In the terminal
 ```bash
-ng serve
+serve
 ```
-2. Open [http://localhost:4200/](http://localhost:4200/). You should see the page with `Angular PWA` header.
+2. Open [http://127.0.0.1:5000](http://127.0.0.1:5000). You should see the page with `Workbox PWA` header.
 3. "Ctrl-C" to stop the app.
-
-## Creating a production build and serving it via external web server
-```bash
-ng build --prod
-```
-The `dist/angular-pwa` folder should be created.
-
-- If you use `serve`: Run `serve` and open `http://127.0.0.1:5000` in your browser.
-
-You should see the page with `Angular PWA` header.
 
 ## We are ready to start the workshop! Follow the trainer instructions.
