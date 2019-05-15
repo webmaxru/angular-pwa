@@ -67,11 +67,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "67807b9245e6c559bc9a76c85430109d"
+    "revision": "bd9dca66d3156acfe5283a61ca3ef95a"
   },
   {
-    "url": "main.ec460fd130b082fe2ebf.js",
-    "revision": "0cd2f6d6084bf627a122e1b1f0c3f9ac"
+    "url": "main.41696ba7cc5a02910415.js",
+    "revision": "d817f5875a2f7f916314d13ac0bb39c9"
   },
   {
     "url": "polyfills.0fa3e9588b07b25d43c2.js",
@@ -177,5 +177,18 @@ self.addEventListener('notificationclose', function(event) {
 });
 
 // BACKGROUND SYNC
+
+// Registering a route for retries
+workbox.routing.registerRoute(
+  /(http[s]?:\/\/)?([^\/\s]+\/)post-tweet/,
+  new workbox.strategies.NetworkOnly({
+    plugins: [
+      new workbox.backgroundSync.Plugin('tweetsQueue', {
+        maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+      })
+    ]
+  }),
+  'POST'
+);
 
 // GOOGLE ANALYTICS

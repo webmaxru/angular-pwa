@@ -113,4 +113,17 @@ self.addEventListener('notificationclose', function(event) {
 
 // BACKGROUND SYNC
 
+// Registering a route for retries
+workbox.routing.registerRoute(
+  /(http[s]?:\/\/)?([^\/\s]+\/)post-tweet/,
+  new workbox.strategies.NetworkOnly({
+    plugins: [
+      new workbox.backgroundSync.Plugin('tweetsQueue', {
+        maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+      })
+    ]
+  }),
+  'POST'
+);
+
 // GOOGLE ANALYTICS
