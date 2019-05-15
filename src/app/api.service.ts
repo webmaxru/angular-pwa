@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { MatSnackBar } from '@angular/material';
@@ -52,13 +52,15 @@ export class ApiService {
 
   private handleError<T>(url = null, result?: T) {
     return (error: any): Observable<T> => {
-      this.log(`${url} failed: ${error.message}`);
 
-      let snackBarRef = this.snackBar.open(error.message || error, null, {
+      let errorMessage = error.message || error
+      this.log(`${url} failed: ${errorMessage}`);
+
+      let snackBarRef = this.snackBar.open(errorMessage, null, {
         duration: this.snackBarDuration
       });
 
-      return of(result as T);
+    return throwError(errorMessage);
     };
   }
 
