@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { MatSnackBar } from '@angular/material';
@@ -60,7 +60,7 @@ export class ApiService {
         duration: this.snackBarDuration
       });
 
-    return Observable.throw(errorMessage);
+    return throwError(errorMessage);
     };
   }
 
