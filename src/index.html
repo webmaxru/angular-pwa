@@ -9,8 +9,65 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3f51b5">
+
+  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js" integrity="sha384-uONtBTCBzHKF84F6XvyC8S0gL8HTkAPeCyBNvfLfsqHh+Kd6s/kaS4BdmNQ5ktp1" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <app-navigation></app-navigation>
+
+  <button id="btnInstall" disabled style="position: absolute; top: 23px; right: 16px; z-index: 1;">Install Workbox PWA</button>
+
+  <script>
+    btnInstall = document.querySelector('#btnInstall')
+  
+    btnInstall.addEventListener('click', () => {
+  
+      // Update the install UI to remove the install button
+      btnInstall.disabled = true;
+  
+      // Show the modal add to home screen dialog
+      installPromptEvent.prompt();
+  
+      // Wait for the user to respond to the prompt
+      installPromptEvent.userChoice.then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        // Clear the saved prompt since it can't be used again
+        installPromptEvent = null;
+      });
+    });
+  
+    window.addEventListener('beforeinstallprompt', event => {
+      console.log('beforeinstallprompt event was fired')
+  
+      // Prevent Chrome <= 67 from automatically showing the prompt
+      event.preventDefault();
+  
+      // Stash the event so it can be triggered later.
+      this.installPromptEvent = event;
+  
+      // Update the install UI to notify the user app can be installed
+      btnInstall.disabled = false;
+    });
+  
+  </script>
+
+  <script>
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+
 </body>
 </html>
