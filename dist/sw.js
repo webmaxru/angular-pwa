@@ -67,7 +67,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "b8afdd879e6126a8bb0e2ac845bb34df"
+    "revision": "fa4821e1548ed5d5021afa0d4b5de757"
   },
   {
     "url": "main.97a3068a07010b8662e7.js",
@@ -85,13 +85,6 @@ workbox.precaching.precacheAndRoute([
     "url": "styles.61981e6f805f82d49920.css",
     "revision": "4f3f288ce3957ce6812c4af674ce8213"
   }
-]);
-
-// Registering a broadcast update plugin
-workbox.precaching.addPlugins([
-  new workbox.broadcastUpdate.Plugin({
-    channelName: 'app-shell'
-  })
 ]);
 
 // RUNTIME CACHING
