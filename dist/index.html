@@ -12,17 +12,16 @@
 <link rel="stylesheet" href="styles.61981e6f805f82d49920.css"></head>
 <body>
   <app-navigation></app-navigation>
-<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="polyfills.0fa3e9588b07b25d43c2.js"></script><script type="text/javascript" src="main.ec460fd130b082fe2ebf.js"></script>
 
-<script>
-  // Check that service workers are registered
-  if ('serviceWorker' in navigator) {
-    // Use the window load event to keep the page load performant
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
+  <script>
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 
-</body>
+<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="polyfills.0fa3e9588b07b25d43c2.js"></script><script type="text/javascript" src="main.97a3068a07010b8662e7.js"></script></body>
 </html>
