@@ -60,6 +60,18 @@
   </script>
 
   <script>
+    if ('BroadcastChannel' in self) {
+      const updateChannel = new BroadcastChannel('app-shell');
+
+      updateChannel.addEventListener('message', event => {
+        if (confirm(`New Version is available! OK to refresh`)) {
+            window.location.reload();
+          }
+      });
+    }
+  </script>
+
+  <script>
     // Check that service workers are registered
     if ('serviceWorker' in navigator) {
       // Use the window load event to keep the page load performant

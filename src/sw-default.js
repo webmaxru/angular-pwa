@@ -22,6 +22,13 @@ workbox.core.clientsClaim();
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 workbox.precaching.precacheAndRoute([]);
 
+// Registering a broadcast update plugin
+workbox.precaching.addPlugins([
+  new workbox.broadcastUpdate.Plugin({
+    channelName: 'app-shell'
+  })
+]);
+
 // RUNTIME CACHING
 
 // Google fonts
