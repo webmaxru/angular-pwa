@@ -26,6 +26,38 @@ workbox.precaching.precacheAndRoute([
     "revision": "0bc833d0d9232ee71e490b997452c182"
   },
   {
+    "url": "assets/icons/icon-128x128.png",
+    "revision": "ef83aae951233f27af90648fa8b825c9"
+  },
+  {
+    "url": "assets/icons/icon-144x144.png",
+    "revision": "a455cb88bc9c224bb416401b605a4570"
+  },
+  {
+    "url": "assets/icons/icon-152x152.png",
+    "revision": "18559b786ff99db4a9c342c3a111ca90"
+  },
+  {
+    "url": "assets/icons/icon-192x192.png",
+    "revision": "7534103c22896094bbbed55c5a37269e"
+  },
+  {
+    "url": "assets/icons/icon-384x384.png",
+    "revision": "53e898b42719b989fe858571fd2263ab"
+  },
+  {
+    "url": "assets/icons/icon-512x512.png",
+    "revision": "b997df4eaa26b0e8455d9de852284fd5"
+  },
+  {
+    "url": "assets/icons/icon-72x72.png",
+    "revision": "04cc09572092242152768a313432a0fa"
+  },
+  {
+    "url": "assets/icons/icon-96x96.png",
+    "revision": "9434e61a9e6eb19b1c588b06d7afd7e8"
+  },
+  {
     "url": "assets/images/logo.png",
     "revision": "f5fd664cc80a6c77d6c79e5bd2653426"
   },
@@ -35,7 +67,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "da84d7f973db1f08e3e88e1cf8f73f1d"
+    "revision": "67807b9245e6c559bc9a76c85430109d"
   },
   {
     "url": "main.ec460fd130b082fe2ebf.js",
@@ -83,6 +115,66 @@ workbox.routing.registerRoute(
 );
 
 // PUSH NOTIFICATIONS
+
+// Receive push and show a notification
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker]: Received push event', event);
+
+  var notificationData = {};
+
+  if (event.data.json()) {
+    notificationData = event.data.json().notification;
+  } else {
+    notificationData = {
+      title: 'Something Has Happened',
+      message: 'Something you might want to check out',
+      icon: '/assets/images/logo.png'
+    };
+  }
+
+  self.registration.showNotification(notificationData.title, notificationData);
+});
+
+// Custom notification actions
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker]: Received notificationclick event');
+
+  event.notification.close();
+
+  if (event.action == 'opentweet') {
+    console.log('[Service Worker]: Performing action opentweet');
+
+    event.waitUntil(
+      clients.openWindow(event.notification.data).then(function(windowClient) {
+        // do something with the windowClient.
+      })
+    );
+  } else {
+    console.log('[Service Worker]: Performing default click action');
+
+    // This looks to see if the current is already open and
+    // focuses if it is
+    event.waitUntil(
+      clients
+        .matchAll({
+          includeUncontrolled: true,
+          type: 'window'
+        })
+        .then(function(clientList) {
+          for (var i = 0; i < clientList.length; i++) {
+            var client = clientList[i];
+            if (client.url == '/' && 'focus' in client) return client.focus();
+          }
+          if (clients.openWindow) return clients.openWindow('/');
+        })
+    );
+  }
+});
+
+// Closing notification action
+self.addEventListener('notificationclose', function(event) {
+  log('[Service Worker]: Received notificationclose event');
+});
 
 // BACKGROUND SYNC
 
