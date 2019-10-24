@@ -7,7 +7,7 @@ module.exports = {
   "runtimeCaching": [
     {
       "urlPattern": new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
-      "handler": 'staleWhileRevalidate'
+      "handler": 'StaleWhileRevalidate'
     }
   ]
 };

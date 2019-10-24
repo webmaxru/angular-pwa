@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "3rdpartylicenses.txt",
-    "revision": "0bc833d0d9232ee71e490b997452c182"
+    "revision": "3507c98437d87c444e209e4eebb8d685"
   },
   {
     "url": "assets/images/logo.png",
